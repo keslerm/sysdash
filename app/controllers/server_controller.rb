@@ -4,9 +4,9 @@ class ServerController < ApplicationController
   def checkin
 
     # Find existing server by name
-    server = Server.find_by_name(params[:name])
+    server = Server.find_by_name_and_token(params[:name], params[:token])
 
-    if (server != nil and server.password == params[:password])
+    if (server != nil)
       server.last_checkin = DateTime.now
       server.ip = request.remote_ip
 

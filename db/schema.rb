@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(version: 20151013165441) do
 
   create_table "servers", force: :cascade do |t|
+    t.string   "token"
     t.string   "name"
     t.string   "ip"
-    t.string   "password"
     t.datetime "last_checkin"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
