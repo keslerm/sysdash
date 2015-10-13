@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20151013165441) do
     t.string   "token"
     t.string   "name"
     t.string   "ip"
+    t.float    "uptime"
     t.datetime "last_checkin"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

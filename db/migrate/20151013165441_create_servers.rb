@@ -4,6 +4,7 @@ class CreateServers < ActiveRecord::Migration
       t.string :token
       t.string :name
       t.string :ip
+      t.float :uptime
       t.timestamp :last_checkin
 
       t.timestamps null: false

@@ -3,7 +3,8 @@
   <tr>
     <td>Name</td>
     <td>IP</td>
-    <td>Last Checkin</td>
+    <td>Last Check-in</td>
+    <td>Uptime</td>
   </tr>
 
   <% @servers.each do |server| %>
@@ -11,6 +12,7 @@
       <td><%= server.name %></td>
       <td><%= server.ip %></td>
       <td><%= server.last_checkin %></td>
+      <td><%= server.uptime %></td>
     </tr>
   <% end %>
 </table>

@@ -9,6 +9,7 @@ class ServerController < ApplicationController
     if (server != nil)
       server.last_checkin = DateTime.now
       server.ip = request.remote_ip
+      server.uptime = params[:uptime]
 
       server.save
       message = 'Success'
