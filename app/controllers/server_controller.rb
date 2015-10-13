@@ -12,11 +12,9 @@ class ServerController < ApplicationController
       server.uptime = params[:uptime]
 
       server.save
-      message = 'Success'
+      render :json => { :message => 'Success'}
     else
-      message = 'Unable to authenticate server'
+      render :status => 401, :json => { :message => 'Unable to authenticate server'}
     end
-
-    render :json => { :message => message}
   end
 end
