@@ -8,7 +8,7 @@ class ServerController < ApplicationController
 
     if (server != nil and server.password == params[:password])
       server.last_checkin = DateTime.now
-      server.ip = params[:ip]
+      server.ip = request.remote_ip
 
       server.save
       message = 'Success'
