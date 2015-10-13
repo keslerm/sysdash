@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  host: MyString
+  ip: MyString
 
 two:
   name: MyString
-  host: MyString
+  ip: MyString
