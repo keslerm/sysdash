@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root 'dashboard#index'
+
+  get 'dashboard/index'
   post 'server/checkin'
 
   # The priority is based upon order of creation: first created -> highest priority.

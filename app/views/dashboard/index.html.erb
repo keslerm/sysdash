@@ -1,0 +1,16 @@
+<h1>Server list</h1>
+<table width="75%">
+  <tr>
+    <td>Name</td>
+    <td>IP</td>
+    <td>Last Checkin</td>
+  </tr>
+
+  <% @servers.each do |server| %>
+    <tr>
+      <td><%= server.name %></td>
+      <td><%= server.ip %></td>
+      <td><%= server.last_checkin %></td>
+    </tr>
+  <% end %>
+</table>
