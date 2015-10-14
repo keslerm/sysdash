@@ -1,7 +1,7 @@
 class ServerController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
-  def checkin
+  def heartbeat
 
     # Find existing server by name
     server = Server.find_by_name_and_token(params[:name], params[:token])

@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
+  # Login related
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
+  # Dashboard
   root 'dashboard#index'
-
   get 'dashboard/index'
-  post 'server/checkin'
+
+  # API - which i will probably rename at some point
+  post 'server/heartbeat'
 
 
 
