@@ -6,7 +6,7 @@ class ServerControllerTest < ActionController::TestCase
     assert_response 401
   end
 
-  test "should update ip and last_checkin" do
+  test "should update ip and last_heartbeat" do
     post :heartbeat, { 'name' => 'server1', 'token' => 'test123'}, format: :json
     assert_response :success
   end

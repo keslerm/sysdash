@@ -11,16 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014152126) do
+ActiveRecord::Schema.define(version: 20151014183428) do
+
+  create_table "heartbeats", force: :cascade do |t|
+    t.integer  "server_id"
+    t.string   "uptime"
+    t.float    "cpu_usage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "servers", force: :cascade do |t|
-    t.string   "token"
     t.string   "name"
+    t.string   "token"
     t.string   "ip"
-    t.float    "uptime"
-    t.datetime "last_checkin"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "last_heartbeat"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "users", force: :cascade do |t|

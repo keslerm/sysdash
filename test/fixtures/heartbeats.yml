@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  server_id: 1
+  uptime: 
+  cpu_usage: 1.5
+
+two:
+  server_id: 1
+  uptime: 
+  cpu_usage: 1.5

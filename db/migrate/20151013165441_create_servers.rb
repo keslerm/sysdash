@@ -1,11 +1,10 @@
 class CreateServers < ActiveRecord::Migration
   def change
     create_table :servers do |t|
-      t.string :token
       t.string :name
+      t.string :token
       t.string :ip
-      t.float :uptime
-      t.timestamp :last_checkin
+      t.timestamp :last_heartbeat
 
       t.timestamps null: false
     end

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protected
   def authenticate_user
     if session[:user_id]
-      @current_user ||= Users.find_by(id: session[:user_id])
+      @current_user ||= User.find_by(id: session[:user_id])
       return true
     else
       redirect_to login_url
