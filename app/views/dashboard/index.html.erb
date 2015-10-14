@@ -1,20 +1,25 @@
-<h1>Server list</h1>
-<table width="75%">
-  <tr>
-    <td>Name</td>
-    <td>IP</td>
-    <td>Last Heartbeat</td>
-    <td>Uptime</td>
-    <td>CPU Usage</td>
-  </tr>
+<div class="container">
 
-  <% @servers.each do |server| %>
-    <tr>
-      <td><%= server.name %></td>
-      <td><%= server.ip %></td>
-      <td><%= server.last_heartbeat %></td>
-      <td><%= server.heartbeats.last.uptime %></td>
-      <td><%= server.heartbeats.last.cpu_usage %>%</td>
-    </tr>
-  <% end %>
-</table>
+  <div class="starter-template">
+    <h1>Server list</h1>
+    <table width="100%">
+      <tr>
+        <td>Name</td>
+        <td>IP</td>
+        <td>Last Heartbeat</td>
+        <td>Uptime</td>
+        <td>CPU Usage</td>
+      </tr>
+
+      <% @servers.each do |server| %>
+          <tr>
+            <td><%= server.name %></td>
+            <td><%= server.ip %></td>
+            <td><%= server.last_heartbeat %></td>
+            <td><%= server.heartbeats.last.uptime %></td>
+            <td><%= server.heartbeats.last.cpu_usage %>%</td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
