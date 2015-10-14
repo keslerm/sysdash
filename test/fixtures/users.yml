@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: test@test.com
+  password: password123
+  salt: MyString
+  created_at: 2015-10-12
+  updated_at: 2015-10-12
+
+two:
+  email: test@domain.com
+  password: password543
+  salt: MyString
+  created_at: 2015-10-12
+  updated_at: 2015-10-12
