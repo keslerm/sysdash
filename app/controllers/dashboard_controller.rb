@@ -3,7 +3,7 @@ class DashboardController < ApplicationController
 
   def index
     # Don't know if this is the best way to do this, could possibly pull the wrong heartbeat
-    @servers = Server.joins(:heartbeats).where('servers.last_heartbeat = heartbeats.created_at')
+    @servers = Server.joins(:heartbeats).includes(:heartbeats).where('servers.last_heartbeat = heartbeats.created_at')
   end
 
 end

@@ -13,8 +13,8 @@
       <td><%= server.name %></td>
       <td><%= server.ip %></td>
       <td><%= server.last_heartbeat %></td>
-      <td><%= server.heartbeats.first.uptime %></td>
-      <td><%= server.heartbeats.first.cpu_usage %>%</td>
+      <td><%= server.heartbeats.last.uptime %></td>
+      <td><%= server.heartbeats.last.cpu_usage %>%</td>
     </tr>
   <% end %>
 </table>
