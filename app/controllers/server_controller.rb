@@ -7,9 +7,6 @@ class ServerController < ApplicationController
     server = Server.find_by_name_and_token(params[:name], params[:token])
 
     if (server != nil)
-      server.last_heartbeat = DateTime.now
-      server.ip = request.remote_ip
-      server.save
 
       # Create new heartbeat record
       heartbeat = Heartbeat.new
@@ -18,6 +15,11 @@ class ServerController < ApplicationController
       heartbeat.server_id = server.id
 
       heartbeat.save
+
+
+      server.last_heartbeat = heartbeat.created_at
+      server.ip = request.remote_ip
+      server.save
 
       render :json => { :message => 'Success'}
     else

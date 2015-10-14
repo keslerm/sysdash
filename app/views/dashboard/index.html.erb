@@ -5,6 +5,7 @@
     <td>IP</td>
     <td>Last Heartbeat</td>
     <td>Uptime</td>
+    <td>CPU Usage</td>
   </tr>
 
   <% @servers.each do |server| %>
@@ -12,6 +13,8 @@
       <td><%= server.name %></td>
       <td><%= server.ip %></td>
       <td><%= server.last_heartbeat %></td>
+      <td><%= server.heartbeats.first.uptime %></td>
+      <td><%= server.heartbeats.first.cpu_usage %>%</td>
     </tr>
   <% end %>
 </table>
