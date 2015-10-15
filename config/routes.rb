@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'heartbeat/beat'
+
   # Login related
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
   get 'dashboard/index'
 
   # API - which i will probably rename at some point
-  post 'server/heartbeat'
+  post 'heartbeat' => 'heartbeat#beat'
 
 
 
