@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'dashboard/index'
 
   # API - which i will probably rename at some point
-  post 'heartbeat' => 'heartbeat#beat'
+  post 'heartbeat' => 'heartbeat#create'
 
   # Servers
   get 'servers/new' => 'server#new'
