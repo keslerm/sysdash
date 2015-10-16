@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20151014183428) do
     t.string   "uptime"
     t.float    "cpu_usage"
     t.integer  "mem_total"
-    t.integer  "mem_free"
+    t.integer  "mem_used"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

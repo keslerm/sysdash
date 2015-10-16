@@ -5,7 +5,7 @@ class CreateHeartbeats < ActiveRecord::Migration
       t.string :uptime
       t.float :cpu_usage
       t.integer :mem_total
-      t.integer :mem_free
+      t.integer :mem_used
 
       t.timestamps null: false
     end

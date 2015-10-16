@@ -12,6 +12,8 @@ class HeartbeatController < ApplicationController
       heartbeat.uptime = params[:uptime]
       heartbeat.cpu_usage = params[:cpu_usage]
       heartbeat.server_id = server.id
+      heartbeat.mem_used = params[:mem_used]
+      heartbeat.mem_total = params[:mem_total]
 
       heartbeat.save
 
