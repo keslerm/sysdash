@@ -1,0 +1,12 @@
+<div class="container">
+
+  <div class="starter-template">
+    <h1>Edit server</h1>
+    <%= form_for(@server, url: {action: 'create'}) do |f| %>
+        <%= f.text_field :name %>
+        <%= f.text_field :token %>
+
+        <%= f.submit 'Create' %>
+    <% end %>
+  </div>
+</div>

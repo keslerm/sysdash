@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   # API - which i will probably rename at some point
   post 'heartbeat' => 'heartbeat#beat'
 
+  # Servers
+  get 'servers/new' => 'server#new'
+  post 'servers/create' => 'server#create'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
