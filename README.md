@@ -9,3 +9,7 @@ The agent protocol for the heartbeat itself is open so you can roll your own hea
 
 The goal of this is simply to provide a quick overview of the health and status of your server network without needing some huge enterprise level tool. I couldn't find anything online that really fit the bill on what I was trying to do so I rolled my own.
 
+=== Sample curl for updating heartbeat: 
+```
+curl --request POST 'localhost:3000/heartbeat' --data-urlencode 'name=rogbox1' --data-urlencode 'hostname=rogbox1' --data-urlencode 'token=123-ac23a-331' --data-urlencode 'uptime=0:08  up 2 days,  8:59, 7 users, load averages: 1.31 1.44 1.41' --data-urlencode 'mem_used=2048' --data-urlencode 'mem_total=10240' --data-urlencode "cpu_usage=1.53"
+```

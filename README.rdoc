@@ -1,14 +1,27 @@
 == README
 
-This is a small work in progress server console system. Essentially on each server you setup an agent that sends a heartbeat to the server console, which then displays information about each server.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-If you manage/monitor lots of servers that are not managed under an ESX type system, or want to monitor a lot of physical machines this should fit the bill.
+Things you may want to cover:
 
-The agent protocol for the heartbeat itself is open so you can roll your own heartbeat monitor if you wanted too.
+* Ruby version
 
-The goal of this is simply to provide a quick overview of the health and status of your server network without needing some huge enterprise level tool. I couldn't find anything online that really fit the bill on what I was trying to do so I rolled my own.
+* System dependencies
 
-=== Sample curl for updating heartbeat: 
-```
-curl --request POST 'localhost:3000/heartbeat' --data-urlencode 'name=rogbox1' --data-urlencode 'token=123-ac23a-331' --data-urlencode 'uptime=0:08  up 2 days,  8:59, 7 users, load averages: 1.31 1.44 1.41' --data-urlencode 'mem_used=2048' --data-urlencode 'mem_total=10240' --data-urlencode 'hostname=rogbox1' --data-urlencode "cpu_usage=1.53"
-```
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
