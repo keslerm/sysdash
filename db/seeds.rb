@@ -7,4 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Server.create(name: 'testbox', token: 'test123')
+Server.create(name: 'rogbox1', token: '123-ac23a-331', ip:'127.0.0.1')
 User.create(email: 'test@test.com', password: 'password1')
