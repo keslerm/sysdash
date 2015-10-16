@@ -3,10 +3,17 @@
   <div class="starter-template">
     <h1>Edit server</h1>
     <%= form_for(@server, url: {action: 'create'}) do |f| %>
-        <%= f.text_field :name %>
-        <%= f.text_field :token %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
 
-        <%= f.submit 'Create' %>
+        <div class="form-group">
+          <%= f.label :token %>
+          <%= f.text_field :token, class: 'form-control' %>
+        </div>
+
+        <%= f.submit 'Create', class: 'btn btn-default' %>
     <% end %>
   </div>
 </div>
