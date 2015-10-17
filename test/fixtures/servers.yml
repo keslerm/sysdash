@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+server1:
+  id: 1
   name: server1
   token: test123
 
-two:
+server2:
+  id: 2
   name: server2
-  ip: test321
+  token: test555

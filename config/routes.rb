@@ -1,22 +1,18 @@
 Rails.application.routes.draw do
-  get 'heartbeat/beat'
-
   # Login related
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
+  # API - which i will probably rename at some point
+  post 'heartbeat' => 'heartbeats#create'
+
+  # Servers
+  resources :servers, only: [:new, :create, :edit, :update, :destroy]
+
   # Dashboard
   root 'dashboard#index'
   get 'dashboard/index'
-
-  # API - which i will probably rename at some point
-  post 'heartbeat' => 'heartbeat#create'
-
-  # Servers
-  get 'servers/new' => 'server#new'
-  post 'servers/create' => 'server#create'
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

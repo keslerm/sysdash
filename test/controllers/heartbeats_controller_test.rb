@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class HeartbeatControllerTest < ActionController::TestCase
+class HeartbeatsControllerTest < ActionController::TestCase
   test "should return error for invalid token" do
     post :create, { 'name' => 'server1', 'token' => 'test111'}, format: :json
     assert_response 401
