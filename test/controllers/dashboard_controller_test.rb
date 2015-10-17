@@ -8,4 +8,11 @@ class DashboardControllerTest < ActionController::TestCase
     assert_redirected_to '/login'
   end
 
+  test 'authenticated access should load dashboard' do
+    get :index, nil, { user_id: '1'}
+
+    assert_response :success
+  end
+
+
 end
