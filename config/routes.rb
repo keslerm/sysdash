@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   # Servers
   resources :servers, only: [:new, :create, :edit, :update, :destroy]
+  resources :users
 
   # Dashboard
   root 'dashboard#index'
