@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class DashboardControllerTest < ActionController::TestCase
-  test "unauthenticated access should redirect to login page" do
+  test 'unauthenticated access should redirect to login page' do
     get :index
     assert_response 302
 
@@ -12,6 +12,7 @@ class DashboardControllerTest < ActionController::TestCase
     get :index, nil, { user_id: '1'}
 
     assert_response :success
+    assert assigns(:servers)
   end
 
 
