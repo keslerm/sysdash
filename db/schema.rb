@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151021183623) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "heartbeats", force: :cascade do |t|
     t.integer  "server_id"
     t.string   "uptime"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20151021183623) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "heartbeats", ["server_id"], name: "index_heartbeats_on_server_id"
+  add_index "heartbeats", ["server_id"], name: "index_heartbeats_on_server_id", using: :btree
 
   create_table "servers", force: :cascade do |t|
     t.string   "name"
