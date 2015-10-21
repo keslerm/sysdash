@@ -9,3 +9,28 @@ two:
   server_id: 1
   uptime: 
   cpu_usage: 1.5
+
+three:
+  server_id: 1
+  uptime:
+  cpu_usage: 1.5
+
+four:
+  server_id: 1
+  uptime:
+  cpu_usage: 1.5
+
+five:
+  server_id: 1
+  uptime:
+  cpu_usage: 1.5
+
+six:
+  server_id: 1
+  uptime:
+  cpu_usage: 1.5
+
+seven:
+  server_id: 1
+  uptime:
+  cpu_usage: 100

@@ -13,7 +13,7 @@
             type: 'line'
         },
         title: {
-            text: 'Last 30 minutes CPU Usage'
+            text: 'Last 5 heartbeats CPU usage'
         },
         xAxis: {
             title: 'Time',
@@ -25,8 +25,8 @@
             }
         },
         series: [{
-            name: 'Jane',
-            data: [1, 0, 4]
+            name: 'Server',
+            data: <%= @cpu_data %>
         }]
     });
 });

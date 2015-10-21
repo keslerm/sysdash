@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'pp'
 
 class ServersControllerTest < ActionController::TestCase
   setup do
@@ -34,5 +35,13 @@ class ServersControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to '/'
+  end
+
+  test 'should assign the last 5 cpu heart beats' do
+    get :show, id: @server.id
+
+    assert assigns :cpu_data
+    assert_same 5, assigns['cpu_data'].length
+    assert_same 100.0, assigns['cpu_data'].last
   end
 end
