@@ -3,15 +3,13 @@
 one:
   id: 1
   email: test@test.com
-  password: password123
-  salt: MyString
+  password_digest: <%= BCrypt::Password.create("password123", cost: 4) %>
   created_at: 2015-10-12
   updated_at: 2015-10-12
 
 two:
   id: 2
   email: test@domain.com
-  password: password543
-  salt: MyString
+  password_digest: <%= BCrypt::Password.create("password321", cost: 4) %>
   created_at: 2015-10-12
   updated_at: 2015-10-12
