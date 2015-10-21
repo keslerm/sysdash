@@ -3,3 +3,8 @@ rvm:
   - "2.0.0"
   - "2.1.0"
   - "2.2.0"
+addons:
+  postgresql: "9.4"
+
+before_script:
+  - psql -C 'create database server_console_test;' -U postgres
