@@ -21,7 +21,6 @@ development:
 test:
   <<: *default
   database: server_console_test
-  username: server_console
 
 production:
   <<: *default
