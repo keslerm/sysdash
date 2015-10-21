@@ -17,7 +17,7 @@
       <tbody>
       <% @servers.each do |server| %>
           <tr>
-            <td><%= server.name %></td>
+            <td><%= link_to server.name, server_path(server) %></td>
             <td><%= server.ip %></td>
             <td><%= server.last_heartbeat ? server.last_heartbeat : 'None' %></td>
             <td><%= server.heartbeats.size > 0 ? server.heartbeats.last.uptime : 'None' %></td>

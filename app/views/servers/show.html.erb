@@ -16,8 +16,11 @@
             text: 'Last 5 heartbeats CPU usage'
         },
         xAxis: {
-            title: 'Time',
-            tickInterval: 1
+            type: 'datetime',
+            datetimeLabelFormats: {
+
+            }
+
         },
         yAxis: {
             title: {
@@ -25,8 +28,8 @@
             }
         },
         series: [{
-            name: 'Server',
-            data: <%= @cpu_data %>
+            name: 'CPU %',
+            data: <%= raw(@cpu_data) %>
         }]
     });
 });

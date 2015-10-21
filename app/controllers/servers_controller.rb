@@ -14,7 +14,7 @@ class ServersController < ApplicationController
     # Get server's last 5 heartbeats - i don't care for this solution but it's a test
     last_5 = Heartbeat.order('created_at desc').where(server_id: @server).limit(5)
 
-    @cpu_data = last_5.map { |r| r.cpu_usage }.reverse
+    @cpu_data = last_5.map { |r| [r.created_at.strftime('%m-%e-%y %H:%M'), r.cpu_usage] }.reverse.to_json
   end
 
   # POST /servers
