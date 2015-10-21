@@ -2,35 +2,59 @@
   <div class="starter-template">
     <h1><%= @server.name %></h1>
 
-    <div id="container" style="width:100%; height:400px;"></div>
+    <div id="cpu_chart" style="width:100%; height:400px;"></div>
+    <div id="memory_chart" style="width:100%; height:400px;"></div>
   </div>
 </div>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script type="text/javascript">
-  $(function () {
-    $('#container').highcharts({
-        chart: {
-            type: 'line'
-        },
-        title: {
-            text: 'CPU Usage last 30 minutes'
-        },
-        xAxis: {
-            labels: {
-                formatter: function () {
-                    return this.value
-                }
+    $(function () {
+        $('#cpu_chart').highcharts({
+            chart: {
+                type: 'line'
             },
-        },
-        yAxis: {
             title: {
-                text: 'CPU%'
-            }
-        },
-        series: [{
-            name: 'CPU %',
-            data: <%= raw(@cpu_data) %>
-        }]
+                text: 'CPU Usage last 30 minutes'
+            },
+            xAxis: {
+                categories: <%= raw(@timestamps) %>
+            },
+            yAxis: {
+                title: {
+                    text: 'CPU Usage %'
+                },
+                min: 0,
+                max: 100,
+                tickInterval: 20
+            },
+            series: [{
+                name: 'CPU Usage %',
+                data: <%= raw(@cpu_data) %>
+            }]
+        });
+
+        $('#memory_chart').highcharts({
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Memory Usage last 30 minutes'
+            },
+            xAxis: {
+                categories: <%= raw(@timestamps) %>
+            },
+            yAxis: {
+                title: {
+                    text: 'Mem Usage %'
+                },
+                min: 0,
+                max: 100,
+                tickInterval: 20
+            },
+            series: [{
+                name: 'Mem Usage %',
+                data: <%= raw(@memory_data) %>
+            }]
+        });
     });
-});
 </script>

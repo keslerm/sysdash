@@ -22,7 +22,7 @@
             <td><%= server.last_heartbeat ? server.last_heartbeat : 'None' %></td>
             <td><%= server.heartbeats.size > 0 ? server.heartbeats.last.uptime : 'None' %></td>
             <td><%= server.heartbeats.size > 0 ? server.heartbeats.last.cpu_usage.to_s + '%' : 'None' %></td>
-            <td><%= server.heartbeats.size > 0 ? ((server.heartbeats.last.mem_used.to_f / server.heartbeats.last.mem_total.to_f).round(3) * 100).round(2).to_s + '%' : 'Unknown' %></td>
+            <td><%= server.heartbeats.size > 0 ? ((server.heartbeats.last.mem_used.to_f / server.heartbeats.last.mem_total.to_f).round(3) * 100).round(2).to_s + '%' : 'None' %></td>
             <td>
               <%= link_to edit_server_path(server) do %>
                   <span class="glyphicon glyphicon-pencil"></span>

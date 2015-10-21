@@ -12,10 +12,24 @@ class ServersController < ApplicationController
   end
 
   def show
-    # Get server's last 5 heartbeats - i don't care for this solution but it's a test
+    # I'm not sure this is the best solution here if a server has millions of heartbeats.
+    if (@server.heartbeats.length == 0)
+      return
+    end
+
     last_30_minutes = Heartbeat.where(server_id: @server).where('created_at >= ?', Heartbeat.where(server_id: @server).maximum('created_at') - 30.minutes).order('created_at')
 
-    @cpu_data = last_30_minutes.map { |r| [r.created_at.strftime('%m-%e-%y %H:%M'), r.cpu_usage] }
+    @cpu_data = []
+    @memory_data = []
+    @timestamps = []
+
+    #@cpu_data = last_30_minutes.map { |r| [r.created_at.strftime('%m-%e-%y %H:%M'), r.cpu_usage] }
+    last_30_minutes.each do |r|
+      @timestamps.push(r.created_at.strftime('%m-%e-%y %H:%M'))
+      @cpu_data.push(r.cpu_usage)
+      @memory_data.push(((r.mem_used.to_f / r.mem_total.to_f).round(3) * 100).round(2))
+    end
+
   end
 
   # POST /servers
