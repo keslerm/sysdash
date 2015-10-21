@@ -1,3 +1,18 @@
+<script type="text/javascript">
+    $(function() {
+
+        $('#generate-uuid').click(function () {
+
+            var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+
+            $("#server_token").val(uuid);
+        });
+
+    });
+</script>
 <div class="actions">
   <%= form_for(@server) do |f| %>
       <% if @server.errors.any? %>
@@ -14,17 +29,25 @@
 
       <div class="form-group">
         <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control' %>
-      </div>
-      <div class="form-group">
+
+        <div class="form-group">
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+
         <%= f.label :token %>
-        <%= f.text_field :token, class: 'form-control' %>
+        <div class="input-group">
+          <%= f.text_field :token, class: 'form-control' %>
+
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-warning" id="generate-uuid">Generate</button>
+          </span>
+        </div>
+
+        <%= f.submit class: 'btn btn-default' %>
+
+        <% if @server.id != nil %>
+            <%= button_to 'Destroy', @server, method: :delete, class: 'btn btn-danger' %>
+        <% end %>
       </div>
-
-      <%= f.submit class: 'btn btn-default' %>
-
-      <% if @server.id != nil %>
-          <%= button_to 'Destroy', @server, method: :delete, class: 'btn btn-danger' %>
-      <% end %>
   <% end %>
 </div>
