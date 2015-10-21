@@ -41,7 +41,7 @@ class ServersControllerTest < ActionController::TestCase
     get :show, id: @server.id
 
     assert assigns :cpu_data
-    assert_same 5, assigns['cpu_data'].length
-    assert_same 100.0, assigns['cpu_data'].last
+    assert_same 6, assigns['cpu_data'].length
+    assert_same 100.0, assigns['cpu_data'].last[1]
   end
 end

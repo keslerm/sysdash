@@ -1,3 +1,4 @@
+require 'pp'
 class ServersController < ApplicationController
   before_action :set_server, only: [:edit, :update, :destroy, :show]
 
@@ -12,9 +13,9 @@ class ServersController < ApplicationController
 
   def show
     # Get server's last 5 heartbeats - i don't care for this solution but it's a test
-    last_5 = Heartbeat.order('created_at desc').where(server_id: @server).limit(5)
+    last_30_minutes = Heartbeat.where(server_id: @server).where('created_at >= ?', Heartbeat.where(server_id: @server).maximum('created_at') - 30.minutes).order('created_at')
 
-    @cpu_data = last_5.map { |r| [r.created_at.strftime('%m-%e-%y %H:%M'), r.cpu_usage] }.reverse.to_json
+    @cpu_data = last_30_minutes.map { |r| [r.created_at.strftime('%m-%e-%y %H:%M'), r.cpu_usage] }
   end
 
   # POST /servers

@@ -13,14 +13,14 @@
             type: 'line'
         },
         title: {
-            text: 'Last 5 heartbeats CPU usage'
+            text: 'CPU Usage last 30 minutes'
         },
         xAxis: {
-            type: 'datetime',
-            datetimeLabelFormats: {
-
-            }
-
+            labels: {
+                formatter: function () {
+                    return this.value
+                }
+            },
         },
         yAxis: {
             title: {

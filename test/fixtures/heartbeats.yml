@@ -37,7 +37,7 @@ six:
   cpu_usage: 1.5
 
 seven:
-  created_at: 2015-09-01 00:30:00
+  created_at: 2015-09-01 00:35:00
   server_id: 1
   uptime:
   cpu_usage: 100
