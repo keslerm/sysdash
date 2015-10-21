@@ -1,5 +1,5 @@
 class ServersController < ApplicationController
-  before_action :set_server, only: [:edit, :update, :destroy]
+  before_action :set_server, only: [:edit, :update, :destroy, :show]
 
   # GET /servers/new
   def new
@@ -8,6 +8,10 @@ class ServersController < ApplicationController
 
   # GET /servers/1/edit
   def edit
+  end
+
+  def show
+
   end
 
   # POST /servers
@@ -48,6 +52,11 @@ class ServersController < ApplicationController
       format.html { redirect_to '/', notice: 'Server was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def average
+    render json: Heartbeat.select('avg(cpu_usage) as avg_cpu_usage, avg(mem_used) as avg_mem_used').where(server_id: @server.id)
+
   end
 
   private

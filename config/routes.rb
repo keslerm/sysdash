@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   # API - which i will probably rename at some point
   post 'heartbeat' => 'heartbeats#create'
 
+  get 'servers/:id/average' => 'servers#average'
+
   # Servers
-  resources :servers, only: [:new, :create, :edit, :update, :destroy]
+  resources :servers, only: [:new, :create, :edit, :update, :destroy, :show]
   resources :users
 
   # Dashboard
