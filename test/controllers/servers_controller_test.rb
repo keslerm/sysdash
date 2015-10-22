@@ -13,6 +13,13 @@ class ServersControllerTest < ActionController::TestCase
     assert_redirected_to '/login'
   end
 
+  test 'should get the list of servers' do
+    get :index, nil, {user_id: 1}
+
+    assert_response :success
+    assert assigns(:servers)
+  end
+
   test 'should get new' do
     get :new, nil, {user_id: 1}
     assert_response :success

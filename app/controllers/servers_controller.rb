@@ -8,6 +8,10 @@ class ServersController < ApplicationController
     @server = Server.new
   end
 
+  def index
+    @servers = Server.all
+  end
+
   # GET /servers/1/edit
   def edit
   end

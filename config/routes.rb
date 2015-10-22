@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'servers/:id/average' => 'servers#average'
 
   # Servers
-  resources :servers, only: [:new, :create, :edit, :update, :destroy, :show]
+  resources :servers, only: [:index, :new, :create, :edit, :update, :destroy, :show]
   resources :users
 
   # Dashboard

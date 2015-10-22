@@ -49,7 +49,6 @@
         <%= link_to 'Back', dashboard_index_path, method: :get, class: 'btn btn-warning', type: 'button' %>
 
         <% if @server.id != nil %>
-            <%= button_to 'Destroy', @server, method: :delete, class: 'btn btn-danger' %>
         <% end %>
       </div>
   <% end %>
