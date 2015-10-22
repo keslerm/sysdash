@@ -26,6 +26,6 @@
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
       <%= f.submit class: 'btn btn-default' %>
+      <%= link_to 'Back', users_path, method: :get, class: 'btn btn-warning', type: 'button' %>
     </div>
 <% end %>
-<%= button_to 'Back', users_path, method: :get, class: 'btn btn-warning' %>
