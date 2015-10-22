@@ -6,6 +6,13 @@ class ServersControllerTest < ActionController::TestCase
     @server = servers(:server1)
   end
 
+  test 'unauthenticated access should redirect to login page' do
+    get :new
+    assert_response 302
+
+    assert_redirected_to '/login'
+  end
+
   test 'should get new' do
     get :new, nil, {user_id: 1}
     assert_response :success

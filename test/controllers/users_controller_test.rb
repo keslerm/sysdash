@@ -5,6 +5,13 @@ class UsersControllerTest < ActionController::TestCase
     @user = users(:one)
   end
 
+  test 'unauthenticated access should redirect to login page' do
+    get :index
+    assert_response 302
+
+    assert_redirected_to '/login'
+  end
+
   test 'should get index' do
     get :index, nil, {user_id: 1}
     assert_response :success
