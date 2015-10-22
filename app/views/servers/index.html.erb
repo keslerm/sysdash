@@ -1,6 +1,6 @@
 <div class="container">
-
   <div class="starter-template">
+    <%= button_to 'New Server', new_server_path, method: :get, class: 'btn btn-default' %>
     <table class="table table-striped table-hover">
       <thead>
       <tr>
@@ -21,7 +21,7 @@
                   <span class="glyphicon glyphicon-pencil"></span>
               <% end %>
 
-              <%= link_to server_path(server), method: :delete do %>
+              <%= link_to server_path(server), method: :delete, data: {confirm: 'Are you sure?'}  do %>
                   <span class="glyphicon glyphicon-remove"></span>
               <% end %>
             </td>

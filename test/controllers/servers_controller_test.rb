@@ -30,7 +30,7 @@ class ServersControllerTest < ActionController::TestCase
       post :create, {server: { name: 'Test', token: '12345' }}, { user_id: 1}
     end
 
-    assert_redirected_to '/'
+    assert_redirected_to servers_path
   end
 
   test 'should get edit' do
@@ -40,7 +40,7 @@ class ServersControllerTest < ActionController::TestCase
 
   test 'should update server' do
     patch :update, {id: @server, server: { name: 'Test 2', token: '555' }}, {user_id: 1}
-    assert_redirected_to '/'
+    assert_redirected_to servers_path
   end
 
   test 'should destroy server' do
@@ -48,7 +48,7 @@ class ServersControllerTest < ActionController::TestCase
       delete :destroy, { id: @server }, { user_id:  1 }
     end
 
-    assert_redirected_to '/'
+    assert_redirected_to servers_path
   end
 
   test 'should assign the last 5 cpu heart beats' do
