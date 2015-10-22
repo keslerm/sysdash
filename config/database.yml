@@ -27,3 +27,4 @@ production:
   <<: *default
   database: server_console_prod
   user: postgres
+  password: <%= ENV['DATABASE_PASSWORD'] %>
