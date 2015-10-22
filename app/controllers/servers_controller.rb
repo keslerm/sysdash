@@ -1,6 +1,7 @@
 require 'pp'
 class ServersController < ApplicationController
   before_action :set_server, only: [:edit, :update, :destroy, :show]
+  before_action :authenticate_user
 
   # GET /servers/new
   def new
