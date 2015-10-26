@@ -22,14 +22,22 @@ class ServersController < ApplicationController
       return
     end
 
-    last_30_minutes = Heartbeat.where(server_id: @server).where('created_at >= ?', Heartbeat.where(server_id: @server).maximum('created_at') - 30.minutes).order('created_at')
+    if params[:timeperiod] != nil
+      time_period = 30.minutes if params[:timeperiod] == '1'
+      time_period = 2.hours if params[:timeperiod] == '2'
+      time_period = 24.hours if params[:timeperiod] == '3'
+      time_period = 1.week if params[:timeperiod] == '4'
+    else
+      time_period = 30.minutes
+    end
+    heartbeats = Heartbeat.where(server_id: @server).where('created_at >= ?', Heartbeat.where(server_id: @server).maximum('created_at') - time_period).order('created_at')
 
     @cpu_data = []
     @memory_data = []
     @timestamps = []
 
     #@cpu_data = last_30_minutes.map { |r| [r.created_at.strftime('%m-%e-%y %H:%M'), r.cpu_usage] }
-    last_30_minutes.each do |r|
+    heartbeats.each do |r|
       @timestamps.push(r.created_at.strftime('%m-%e-%y %H:%M'))
       @cpu_data.push(r.cpu_usage)
       @memory_data.push(((r.mem_used.to_f / r.mem_total.to_f).round(3) * 100).round(2))

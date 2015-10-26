@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :servers, only: [:index, :new, :create, :edit, :update, :destroy, :show]
   resources :users
 
+  post 'servers/:id' => 'servers#show'
+
   # Dashboard
   root 'dashboard#index'
   get 'dashboard/index'
