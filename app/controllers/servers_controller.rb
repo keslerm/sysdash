@@ -1,4 +1,3 @@
-require 'pp'
 class ServersController < ApplicationController
   before_action :set_server, only: [:edit, :update, :destroy, :show]
   before_action :authenticate_user
@@ -18,18 +17,19 @@ class ServersController < ApplicationController
 
   def show
     # I'm not sure this is the best solution here if a server has millions of heartbeats.
-    if (@server.heartbeats.length == 0)
+    if @server.heartbeats.length == 0
       return
     end
+
+    time_period = 30.minutes
 
     if params[:timeperiod] != nil
       time_period = 30.minutes if params[:timeperiod] == '1'
       time_period = 2.hours if params[:timeperiod] == '2'
       time_period = 24.hours if params[:timeperiod] == '3'
       time_period = 1.week if params[:timeperiod] == '4'
-    else
-      time_period = 30.minutes
     end
+
     heartbeats = Heartbeat.where(server_id: @server).where('created_at >= ?', Heartbeat.where(server_id: @server).maximum('created_at') - time_period).order('created_at')
 
     @cpu_data = []
