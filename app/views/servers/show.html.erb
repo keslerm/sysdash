@@ -3,7 +3,7 @@
     <h1><%= @server.name %></h1>
 
     <%= form_tag server_path, id: 'time_selection' do %>
-        <%= select_tag('timeperiod', options_for_select([['30 minutes', 1], ['2 hours', 2], ['24 hours', 3], ['1 week', 4]], params['timeperiod'])) %>
+        <%= select_tag('timeperiod', options_for_select([['1 hour', 1], ['24 hours', 2], ['1 week', 3], ['1 month', 4]], params['timeperiod'])) %>
     <% end %>
     </form>
 
@@ -15,7 +15,7 @@
     $(function () {
         $('#chart').highcharts({
             chart: {
-                type: 'spline'
+                type: 'line'
             },
             title: {
                 text: 'Usage %'
@@ -30,11 +30,14 @@
                 min: 0
             },
             plotOptions: {
-                spline: {
+                line: {
                     marker: {
                         enabled: false
                     }
                 },
+                series: {
+                    //step: 'left'
+                }
             },
             series: [
                 {
