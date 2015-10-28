@@ -50,14 +50,4 @@ class ServersControllerTest < ActionController::TestCase
 
     assert_redirected_to servers_path
   end
-
-  test 'should assign the last 5 cpu heart beats' do
-    get :show, {id: @server.id}, {user_id: 1}
-
-    assert assigns :cpu_data
-    assert assigns :memory_data
-    assert_same 6, assigns['cpu_data'].length
-    assert_same 6, assigns['memory_data'].length
-    assert_same 100.0, assigns['cpu_data'].last
-  end
 end
