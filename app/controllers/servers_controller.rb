@@ -38,9 +38,9 @@ class ServersController < ApplicationController
 
     #@cpu_data = last_30_minutes.map { |r| [r.created_at.strftime('%m-%e-%y %H:%M'), r.cpu_usage] }
     heartbeats.each do |r|
-      @timestamps.push(r.created_at.strftime('%m-%e-%y %H:%M'))
-      @cpu_data.push(r.cpu_usage)
-      @memory_data.push(((r.mem_used.to_f / r.mem_total.to_f).round(3) * 100).round(2))
+      #@timestamps.push(r.created_at.strftime('%m-%e-%y %H:%M'))
+      @cpu_data.push([(r.created_at - Time.new(1970, 01, 01)) * 1000, r.cpu_usage])
+      @memory_data.push([(r.created_at - Time.new(1970, 01, 01)) * 1000, ((r.mem_used.to_f / r.mem_total.to_f).round(3) * 100).round(2)])
     end
 
   end

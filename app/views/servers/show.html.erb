@@ -7,59 +7,45 @@
     <% end %>
     </form>
 
-    <div id="cpu_chart" style="width:100%; height:400px;"></div>
-    <div id="memory_chart" style="width:100%; height:400px;"></div>
+    <div id="chart" style="width:100%; height:400px;"></div>
   </div>
 </div>
 
 <script type="text/javascript">
     $(function () {
-        $('#cpu_chart').highcharts({
+        $('#chart').highcharts({
             chart: {
-                type: 'line'
+                type: 'spline'
             },
             title: {
-                text: 'CPU Usage last 30 minutes'
+                text: 'Usage %'
             },
             xAxis: {
-                categories: <%= raw(@timestamps) %>
+                type: 'datetime'
             },
             yAxis: {
                 title: {
-                    text: 'CPU Usage %'
+                    text: 'Usage %'
                 },
-                min: 0,
-                max: 100,
-                tickInterval: 20
+                min: 0
             },
-            series: [{
-                name: 'CPU Usage %',
-                data: <%= raw(@cpu_data) %>
-            }]
-        });
-
-        $('#memory_chart').highcharts({
-            chart: {
-                type: 'line'
-            },
-            title: {
-                text: 'Memory Usage last 30 minutes'
-            },
-            xAxis: {
-                categories: <%= raw(@timestamps) %>
-            },
-            yAxis: {
-                title: {
-                    text: 'Mem Usage %'
+            plotOptions: {
+                spline: {
+                    marker: {
+                        enabled: false
+                    }
                 },
-                min: 0,
-                max: 100,
-                tickInterval: 20
             },
-            series: [{
-                name: 'Mem Usage %',
-                data: <%= raw(@memory_data) %>
-            }]
+            series: [
+                {
+                    name: 'CPU Usage %',
+                    data: <%= raw(@cpu_data) %>
+                },
+                {
+                    name: 'Mem Usage %',
+                    data: <%= raw(@memory_data) %>
+                }
+            ]
         });
     });
 </script>
