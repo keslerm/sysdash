@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'event/create'
+
   # Login related
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
@@ -6,6 +8,7 @@ Rails.application.routes.draw do
 
   # API - which i will probably rename at some point
   post 'heartbeat' => 'heartbeats#create'
+  post 'event' => 'events#create'
 
   get 'servers/:id/average' => 'servers#average'
 

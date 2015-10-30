@@ -10,6 +10,7 @@
         <th>Uptime</th>
         <th>CPU Usage</th>
         <th>Memory Usage</th>
+        <th>Events</th>
       </tr>
       </thead>
       <tbody>
@@ -21,6 +22,7 @@
             <td><%= server.heartbeats.size > 0 ? server.heartbeats.last.uptime : 'None' %></td>
             <td><%= server.heartbeats.size > 0 ? server.heartbeats.last.cpu_usage.to_s + '%' : 'None' %></td>
             <td><%= server.heartbeats.size > 0 ? ((server.heartbeats.last.mem_used.to_f / server.heartbeats.last.mem_total.to_f).round(3) * 100).round(2).to_s + '%' : 'None' %></td>
+            <td><%= server.events.size %></td>
           </tr>
       <% end %>
       </tbody>

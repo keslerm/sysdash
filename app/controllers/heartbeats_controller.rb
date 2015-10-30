@@ -3,20 +3,15 @@ class HeartbeatsController < ApplicationController
 
   def create
     # Find existing server by name
-    server = Server.find_by_name_and_token(params[:name], params[:token])
-
-    if (server != nil)
+    if (server = Server.find_by_name_and_token(params[:name], params[:token]))
 
       # Create new heartbeat record
       heartbeat = Heartbeat.new
       heartbeat.uptime = params[:uptime]
       heartbeat.cpu_usage = params[:cpu_usage]
-      heartbeat.server_id = server.id
       heartbeat.mem_used = params[:mem_used]
       heartbeat.mem_total = params[:mem_total]
-
-      heartbeat.save
-
+      server.heartbeats << heartbeat
 
       server.last_heartbeat = heartbeat.created_at
       server.ip = request.remote_ip
