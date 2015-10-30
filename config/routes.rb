@@ -10,15 +10,14 @@ Rails.application.routes.draw do
   post 'heartbeat' => 'heartbeats#create'
   post 'event' => 'events#create'
 
-  get 'servers/:id/average' => 'servers#average'
-
   # Servers
-  resources :servers, only: [:index, :new, :create, :edit, :update, :destroy, :show]
+  resources :servers
   resources :users
 
+  # For updating chart data
   post 'servers/:id' => 'servers#show'
 
-  # Dashboard
+  # Dashboard/index
   root 'dashboard#index'
   get 'dashboard/index'
 

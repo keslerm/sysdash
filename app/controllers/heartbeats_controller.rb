@@ -1,5 +1,5 @@
 class HeartbeatsController < ApplicationController
-  skip_before_filter  :verify_authenticity_token
+  skip_before_filter  :verify_authenticity_token, only: [ :create ]
 
   def create
     # Find existing server by name
