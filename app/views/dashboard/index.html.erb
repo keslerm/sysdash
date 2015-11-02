@@ -19,10 +19,10 @@
             <td><%= link_to server.name, server_path(server) %></td>
             <td><%= server.ip %></td>
             <td><%= server.last_heartbeat ? server.last_heartbeat : 'None' %></td>
-            <td><%= server.heartbeats.size > 0 ? server.heartbeats.last.uptime : 'None' %></td>
-            <td><%= server.heartbeats.size > 0 ? server.heartbeats.last.cpu_usage.to_s + '%' : 'None' %></td>
-            <td><%= server.heartbeats.size > 0 ? ((server.heartbeats.last.mem_used.to_f / server.heartbeats.last.mem_total.to_f).round(3) * 100).round(2).to_s + '%' : 'None' %></td>
-            <td><%= server.events.size %></td>
+            <td><%= !server.heartbeats.empty? ? server.heartbeats.last.uptime : 'None' %></td>
+            <td><%= !server.heartbeats.empty? ? server.heartbeats.last.cpu_usage.to_s + '%' : 'None' %></td>
+            <td><%= !server.heartbeats.empty? ? ((server.heartbeats.last.mem_used.to_f / server.heartbeats.last.mem_total.to_f).round(3) * 100).round(2).to_s + '%' : 'None' %></td>
+            <td><%= server.messages.size %></td>
           </tr>
       <% end %>
       </tbody>

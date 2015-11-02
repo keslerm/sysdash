@@ -11,18 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151030175235) do
+ActiveRecord::Schema.define(version: 20151102210503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "events", force: :cascade do |t|
-    t.integer  "server_id"
-    t.string   "message"
-    t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "heartbeats", force: :cascade do |t|
     t.integer  "server_id"
@@ -35,6 +27,14 @@ ActiveRecord::Schema.define(version: 20151030175235) do
   end
 
   add_index "heartbeats", ["server_id"], name: "index_heartbeats_on_server_id", using: :btree
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "server_id"
+    t.text     "message"
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "servers", force: :cascade do |t|
     t.string   "name"

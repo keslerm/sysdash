@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   # API - which i will probably rename at some point
-  post 'heartbeat' => 'heartbeats#create'
-  post 'event' => 'events#create'
+  post 'events/heartbeat' => 'heartbeats#create'
+  post 'events/message' => 'messages#create'
 
   # Servers
   resources :servers

@@ -1,13 +1,13 @@
-class EventsController < ApplicationController
-  skip_before_filter  :verify_authenticity_token
+class MessagesController < ApplicationController
+  skip_before_filter  :verify_authenticity_token, only: [:create]
 
   def create
     if (server = Server.find_by_name_and_token(params[:name], params[:token]))
-      event = Event.new
-      event.message = params[:message]
-      event.status = 'New'
+      message = Message.new
+      message.message = params[:message]
+      message.status = 'New'
 
-      server.events << event
+      server.messages << message
 
       server.save
 
