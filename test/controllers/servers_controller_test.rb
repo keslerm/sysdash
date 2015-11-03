@@ -50,4 +50,9 @@ class ServersControllerTest < ActionController::TestCase
 
     assert_redirected_to servers_path
   end
+
+  test 'should get server details' do
+    get :show, {id: @server}, { user_id: 1}
+    assert_response :success
+  end
 end
