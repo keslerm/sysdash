@@ -5,7 +5,6 @@
     <%= form_tag server_path, id: 'time_selection' do %>
         <%= select_tag('timeperiod', options_for_select([['1 hour', 1], ['24 hours', 2], ['1 week', 3], ['1 month', 4]], params['timeperiod'])) %>
     <% end %>
-    </form>
 
     <div id="chart" style="width:100%; height:400px;"></div>
 
@@ -19,7 +18,7 @@
         </tr>
         </thead>
         <tbody>
-            <% @server.events.limit(10).each do |event| %>
+            <% @server.messages.limit(10).each do |event| %>
                 <tr>
                   <td><%= event.message %></td>
                   <td><%= event.created_at %></td>
