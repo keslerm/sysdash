@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  skip_before_filter  :verify_authenticity_token, only: [:create]
+  skip_before_filter  :verify_authenticity_token
 
   def message
     if (server = Server.find_by_name_and_token(params[:name], params[:token]))
