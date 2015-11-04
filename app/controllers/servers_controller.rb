@@ -70,11 +70,6 @@ class ServersController < ApplicationController
     end
   end
 
-  def average
-    render json: Heartbeat.select('avg(cpu_usage) as avg_cpu_usage, avg(mem_used) as avg_mem_used').where(server_id: @server.id)
-
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_server
