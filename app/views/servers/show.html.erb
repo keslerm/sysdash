@@ -7,26 +7,6 @@
     <% end %>
 
     <div id="chart" style="width:100%; height:400px;"></div>
-
-    <h2>Last 10 events</h2>
-    <div id="events">
-      <table class="table table-striped table-hover">
-        <thead>
-        <tr>
-          <th>Message</th>
-          <th>Created on</th>
-        </tr>
-        </thead>
-        <tbody>
-            <% @server.messages.limit(10).each do |event| %>
-                <tr>
-                  <td><%= event.message %></td>
-                  <td><%= event.created_at %></td>
-                </tr>
-            <% end %>
-        </tbody>
-      </table>
-    </div>
   </div>
 </div>
 
