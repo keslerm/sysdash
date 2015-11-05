@@ -8,7 +8,7 @@ class SystemsController < ApplicationController
   end
 
   def index
-    @systems = System.all
+    @systems = System.order(:name).all
   end
 
   # GET /servers/1/edit
