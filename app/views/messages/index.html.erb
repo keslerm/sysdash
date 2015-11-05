@@ -22,7 +22,9 @@
             </td>
           </tr>
           <tr id="message_<%= message.id %>" style="display: none">
-            <td colspan="4"><%= simple_format(message.body) %></td>
+            <td colspan="4">
+              <pre><%= simple_format(message.body) %></pre>
+            </td>
           </tr>
       <% end %>
       </tbody>
