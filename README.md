@@ -1,6 +1,6 @@
-Server Console
+Sysdash
 =================
-[![Build Status](https://travis-ci.org/keslerm/server_console.svg?branch=master)](https://travis-ci.org/keslerm/server_console)
+[![Build Status](https://travis-ci.org/keslerm/sysdash.svg?branch=master)](https://travis-ci.org/keslerm/sysdash)
 
 This is a small work in progress server console system. Essentially on each server you setup an agent that sends a heartbeat to the server console, which then displays information about each server.
 
