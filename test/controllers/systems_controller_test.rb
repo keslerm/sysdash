@@ -55,4 +55,8 @@ class SystemsControllerTest < ActionController::TestCase
     get :show, {id: @system}, {user_id: 1}
     assert_response :success
   end
+
+  test 'should get system graph with non-default timeframe' do
+    post :show, {id: @system}, {user_id: 1}
+  end
 end

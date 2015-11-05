@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :messages, {only: [:index, :destroy]}
 
   # For updating chart data
-  post 'servers/:id' => 'servers#show'
+  post 'systems/:id' => 'systems#show'
 
   # Dashboard/index
   root 'dashboard#index'
