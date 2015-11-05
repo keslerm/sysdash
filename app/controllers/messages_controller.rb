@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
   before_action :authenticate_user
 
   def index
-    @messages = Message.includes(:server).all
+    @messages = Message.includes(:system).all
   end
 
   def destroy
