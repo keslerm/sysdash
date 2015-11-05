@@ -12,7 +12,7 @@
       <tbody>
       <% @messages.each do |message| %>
           <tr class="unhider" id="<%= message.id %>" style="cursor: pointer;">
-            <td><%= message.server.name %></td>
+            <td><%= message.system.name %></td>
             <td><%= message.subject %></td>
             <td><%= message.created_at %></td>
             <td>

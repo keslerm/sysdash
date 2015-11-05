@@ -14,13 +14,13 @@
     });
 </script>
 <div class="actions">
-  <%= form_for(@server) do |f| %>
-      <% if @server.errors.any? %>
+  <%= form_for(@system) do |f| %>
+      <% if @system.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@server.errors.count, "error") %> prohibited this server from being saved:</h2>
+            <h2><%= pluralize(@system.errors.count, "error") %> prohibited this server from being saved:</h2>
 
             <ul>
-              <% @server.errors.full_messages.each do |message| %>
+              <% @system.errors.full_messages.each do |message| %>
                   <li><%= message %></li>
               <% end %>
             </ul>
@@ -46,9 +46,9 @@
         </div>
 
         <%= f.submit class: 'btn btn-default' %>
-        <%= link_to 'Back', servers_path, method: :get, class: 'btn btn-warning', type: 'button' %>
+        <%= link_to 'Back', systems_path, method: :get, class: 'btn btn-warning', type: 'button' %>
 
-        <% if @server.id != nil %>
+        <% if @system.id != nil %>
         <% end %>
       </div>
   <% end %>

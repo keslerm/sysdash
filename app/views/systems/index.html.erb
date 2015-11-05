@@ -1,6 +1,6 @@
 <div class="container">
   <div class="starter-template">
-    <%= button_to 'New Server', new_server_path, method: :get, class: 'btn btn-default' %>
+    <%= button_to 'New System', new_system_path, method: :get, class: 'btn btn-default' %>
     <table class="table table-striped table-hover">
       <thead>
       <tr>
@@ -11,17 +11,17 @@
       </tr>
       </thead>
       <tbody>
-      <% @servers.each do |server| %>
+      <% @systems.each do |system| %>
           <tr>
-            <td><%= server.name %></td>
-            <td><%= server.ip %></td>
-            <td><%= server.last_heartbeat ? server.last_heartbeat : 'None' %></td>
+            <td><%= system.name %></td>
+            <td><%= system.ip %></td>
+            <td><%= system.last_heartbeat ? system.last_heartbeat : 'None' %></td>
             <td>
-              <%= link_to edit_server_path(server) do %>
+              <%= link_to edit_system_path(system) do %>
                   <span class="glyphicon glyphicon-pencil"></span>
               <% end %>
 
-              <%= link_to server_path(server), method: :delete, data: {confirm: 'Are you sure?'}  do %>
+              <%= link_to system_path(system), method: :delete, data: {confirm: 'Are you sure?'}  do %>
                   <span class="glyphicon glyphicon-remove"></span>
               <% end %>
             </td>

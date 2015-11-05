@@ -4,10 +4,10 @@ one:
   subject: Subject
   body: MyString
   status: New
-  server_id: 1
+  system_id: 1
 
 two:
   subject: Subject
   body: MyString
   status: New
-  server_id: 1
+  system_id: 1

@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104183315) do
+ActiveRecord::Schema.define(version: 20151105002003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "heartbeats", force: :cascade do |t|
-    t.integer  "server_id"
+    t.integer  "system_id"
     t.string   "uptime"
     t.float    "cpu_usage"
     t.integer  "mem_total"
@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(version: 20151104183315) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "heartbeats", ["server_id"], name: "index_heartbeats_on_server_id", using: :btree
+  add_index "heartbeats", ["system_id"], name: "index_heartbeats_on_system_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
-    t.integer  "server_id"
+    t.integer  "system_id"
     t.text     "body"
     t.string   "status"
     t.datetime "created_at", null: false
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20151104183315) do
     t.string   "subject"
   end
 
-  create_table "servers", force: :cascade do |t|
+  create_table "systems", force: :cascade do |t|
     t.string   "name"
     t.string   "token"
     t.string   "ip"

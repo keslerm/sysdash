@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post 'events/message' => 'events#message'
 
   # Servers
-  resources :servers
+  resources :systems
   resources :users
   resources :messages, {only: [:index, :destroy]}
 

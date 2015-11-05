@@ -1,3 +1,3 @@
 class Message < ActiveRecord::Base
-  belongs_to :server
+  belongs_to :system
 end

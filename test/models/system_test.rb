@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ServerTest < ActiveSupport::TestCase
+class SystemTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
   def message
-    if (server = Server.find_by_name_and_token(params[:name], params[:token]))
+    if (server = System.find_by_name_and_token(params[:name], params[:token]))
       message = Message.new
       message.subject = params[:subject]
       message.body = params[:body]
@@ -20,7 +20,7 @@ class EventsController < ApplicationController
 
   def heartbeat
     # Find existing server by name
-    if (server = Server.find_by_name_and_token(params[:name], params[:token]))
+    if (server = System.find_by_name_and_token(params[:name], params[:token]))
 
       # Create new heartbeat record
       heartbeat = Heartbeat.new
