@@ -13,18 +13,7 @@
         <th>Messages</th>
       </tr>
       </thead>
-      <tbody>
-      <% @systems.each do |system| %>
-          <tr>
-            <td><%= link_to system.name, system_path(system) %></td>
-            <td><%= system.ip %></td>
-            <td><%= system.last_heartbeat ? system.last_heartbeat : 'None' %></td>
-            <td><%= !system.heartbeats.empty? ? system.heartbeats.last.uptime : 'None' %></td>
-            <td><%= !system.heartbeats.empty? ? system.heartbeats.last.cpu_usage.to_s + '%' : 'None' %></td>
-            <td><%= !system.heartbeats.empty? ? ((system.heartbeats.last.mem_used.to_f / system.heartbeats.last.mem_total.to_f).round(3) * 100).round(2).to_s + '%' : 'None' %></td>
-            <td><%= system.messages.size %></td>
-          </tr>
-      <% end %>
+      <tbody id="dashboard-systems">
       </tbody>
     </table>
   </div>

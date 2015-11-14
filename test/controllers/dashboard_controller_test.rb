@@ -12,7 +12,6 @@ class DashboardControllerTest < ActionController::TestCase
     get :index, nil, { user_id: '1'}
 
     assert_response :success
-    assert assigns(:systems)
   end
 
 
