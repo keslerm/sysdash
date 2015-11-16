@@ -15,7 +15,7 @@
           <tr>
             <td><%= system.name %></td>
             <td><%= system.ip %></td>
-            <td><%= system.last_heartbeat ? system.last_heartbeat : 'None' %></td>
+            <td><%= system.last_heartbeat ? system.last_heartbeat.created_at : 'None' %></td>
             <td>
               <%= link_to edit_system_path(system) do %>
                   <span class="glyphicon glyphicon-pencil"></span>
