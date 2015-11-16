@@ -14,7 +14,7 @@ class DashboardController < ApplicationController
 
       results['name'] = system.name
       results['ip'] = system.ip
-      results['last_heartbeat'] = system.last_heartbeat
+      results['last_heartbeat'] = system.last_heartbeat.strftime('%Y-%m-%d %H:%M:%S %Z')
       results['uptime'] = system.heartbeats.last.uptime
       results['cpu_usage'] = system.heartbeats.last.cpu_usage.to_s + '%'
       results['mem_usage'] = ((system.heartbeats.last.mem_used.to_f / system.heartbeats.last.mem_total.to_f).round(3) * 100).round(2).to_s + '%'
