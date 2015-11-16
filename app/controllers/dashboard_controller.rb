@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
   end
 
   def systems
-    systems = System.joins('LEFT OUTER JOIN heartbeats ON systems.id = heartbeats.system_id').includes(:heartbeats).where('systems.last_heartbeat = heartbeats.created_at or systems.last_heartbeat is null').order(:name)
+    systems = System.joins('LEFT OUTER JOIN heartbeats ON systems.id = heartbeats.system_id').includes(:messages).includes(:heartbeats).where('systems.last_heartbeat = heartbeats.created_at or systems.last_heartbeat is null').order(:name)
 
     json_data = []
 
