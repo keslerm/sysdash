@@ -30,7 +30,6 @@ class EventsController < ApplicationController
       heartbeat.mem_total = params[:mem_total]
       server.heartbeats << heartbeat
 
-      server.last_heartbeat = heartbeat.created_at
       server.ip = request.remote_ip
       server.save
 
