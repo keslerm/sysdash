@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # Servers
   resources :systems
   resources :users
-  resources :messages, {only: [:index, :destroy]}
+  resources :messages, {only: [:index, :destroy, :show]}
 
   # For updating chart data
   post 'systems/:id' => 'systems#show'

@@ -1,0 +1,10 @@
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<div class="container">
+  <div class="starter-template">
+    <%= link_to('Back', messages_path, class: 'btn btn-default', type: 'button') %>
+    <%= link_to('Delete', message_path, method: :delete, class: 'btn btn-danger', type: 'button') %>
+    <div style="margin-top: 8px;">
+      <pre class="message-body"><%= @message.body %></pre>
+    </div>
+  </div>
+</div>

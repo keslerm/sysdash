@@ -1,9 +1,12 @@
 class MessagesController < ApplicationController
-  before_action :set_server, only: [:destroy]
+  before_action :set_server, only: [:destroy, :show]
   before_action :authenticate_user
 
   def index
     @messages = Message.includes(:system).order(:created_at).all
+  end
+
+  def show
   end
 
   def destroy

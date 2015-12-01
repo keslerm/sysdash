@@ -1,7 +1,5 @@
 $ ->
-  console.info("Messages loaded")
+  $(".message").click ->
+    id = $(this).attr('id')
 
-  $(".unhider").click ->
-    id = $(this).attr("id")
-
-    $("#message_" + id).toggle();
+    window.location.href = '/messages/' + id

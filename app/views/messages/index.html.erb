@@ -1,31 +1,19 @@
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 <div class="container">
   <div class="starter-template">
     <table class="table table-striped table-hover">
       <thead>
       <tr>
-        <th>Server</th>
-        <th>Subject</th>
-        <th>Created</th>
-        <th></th>
+        <th width="20%">Server</th>
+        <th width="55%">Subject</th>
+        <th width="20%">Created</th>
       </tr>
       </thead>
       <tbody>
       <% @messages.each do |message| %>
-          <tr class="unhider" id="<%= message.id %>" style="cursor: pointer;">
+          <tr style="cursor: pointer;" id="<%= message.id %>" class="message">
             <td><%= message.system.name %></td>
             <td><%= message.subject %></td>
             <td><%= message.created_at %></td>
-            <td>
-              <%= link_to message, method: :delete, data: {confirm:'Are you sure you want to remove this?'} do %>
-                  <span class="glyphicon glyphicon-remove"></span>
-              <% end %>
-            </td>
-          </tr>
-          <tr id="message_<%= message.id %>" style="display: none">
-            <td colspan="4">
-              <pre class="message-body"><%= simple_format(message.body) %></pre>
-            </td>
           </tr>
       <% end %>
       </tbody>
